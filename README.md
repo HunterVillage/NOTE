@@ -1,3 +1,3 @@
-1.mysql 8.0新建数据库修改密码命令（标点符号为英文）
+1. DB:mysql version:8.0.11 OS:win10 title:鏂板缓鏁版嵁搴撲慨鏀瑰瘑鐮佸懡浠わ紙鏍囩偣绗﹀彿涓鸿嫳鏂囷級
 
-  ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password1';
+  ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password';
