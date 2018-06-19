@@ -41,18 +41,15 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password1';
 
 `public class SSS{`
 
-   `private static SSS instance;`
-   `private SSS() {`  
-   `}`
-   `public static synchronized SSS getinstance() {`
+   private static SSS instance;
+   private SSS() { 
+   }
+   public static synchronized SSS getinstance() {
 	   if(instance==null) {
 		   instance=new SSS();
 	   }
 	return instance;   
-   `}`
-
-
-​	
+   }	
 
 `}`
 
