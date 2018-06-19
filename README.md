@@ -32,7 +32,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password1';
 		
 		//显示消息
 		s.message();		
-
+	
 	}
 
 `}`
@@ -41,10 +41,10 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password1';
 
 `public class SSS{`
 
-   private static SSS instance;
+   `private static SSS instance;`
    private SSS() { 
    }
-   public static synchronized SSS getinstance() {
+   `public static synchronized SSS getinstance() {`
 	   if(instance==null) {
 		   instance=new SSS();
 	   }
@@ -96,5 +96,33 @@ lazy-loading:yes.
 
 总结:lazy-loading:yes ,线程安全,多线程下可保证高性能.
 
-还有两种,没有写回去补!!!
 
+
+④登记式/静态内部类
+
+```
+public class Singleton {  
+    private static class SingletonHolder {  
+    private static final Singleton INSTANCE = new Singleton();  
+    }  
+    private Singleton (){}  
+    public static final Singleton getInstance() {  
+    return SingletonHolder.INSTANCE;  
+    }  
+}   
+```
+
+总结:lazy-loading:yes .线程安全,达到和双检索一样的功效,但实现更简单,对静态域使用延迟处理化,
+
+⑤枚举
+
+```
+public enum Singleton {  
+    INSTANCE;  
+    public void whateverMethod() {  
+    }  
+}  
+```
+
+总结:lazy-loding:NO,线程安全,它不仅能避免多线程同步问题，而且还自动支持序列化机制，防止反序列化重新创建新的对象，绝对防止多次实例化。不过，由于 JDK1.5 之后才加入 enum 特性，用这种方式写不免让人感觉生疏，在实际工作中，也很少用。
+不能通过 reflection attack 来调用私有构造方法
