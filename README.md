@@ -39,19 +39,18 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password1';
 
 ①线程安全的懒汉式（因为加了synchronized关键字，即可多线程安全）
 
-`public class SSS{`
-
-   `private static SSS instance;`
-   private SSS() { 
-   }
-   `public static synchronized SSS getinstance() {`
-	   if(instance==null) {
-		   instance=new SSS();
-	   }
-	return instance;   
-   }	
-
-`}`
+```
+public class Singleton {  
+    private static Singleton instance;  
+    private Singleton (){}  
+    public static synchronized Singleton getInstance() {  
+    if (instance == null) {  
+        instance = new Singleton();  
+    }  
+    return instance;  
+    }  
+} 
+```
 
 优点:第一次调用才初始化，避免内存浪费.
 
@@ -61,15 +60,15 @@ lazy-loading:yes.
 
 ②饿汉式()
 
-`public class SSS{`
-  `private static SSS s=new SSS();// no lazy-loding`
-  `private SSS() {`  
-  `};`
-  `public static SSS getinstance() {`
-
-	  return s;
-  `}`
-`}`
+```
+public class Singleton {  
+    private static Singleton instance = new Singleton();  
+    private Singleton (){}  
+    public static Singleton getInstance() {  
+    return instance;  
+    }  
+}  
+```
 
 优点:没有加锁,执行效率高
 
@@ -77,22 +76,22 @@ lazy-loading:yes.
 
 ③双检锁/双重校验锁(double-checked locking)
 
-`public class SSS{`
-`private volatile static SSS s;`
- `private SSS() {` 
- `};`
- `public static SSS getinstance() {`
-
-	 if(s==null) {
-		 synchronized(SSS.class) {
-			 if(s==null) {
-				 s=new SSS();	 
-			 }
-		 }		  
-	 }
-	return s;
- `}`
-`}`
+```
+public class Singleton {  
+    private volatile static Singleton singleton;  
+    private Singleton (){}  
+    public static Singleton getSingleton() {  
+    if (singleton == null) {  
+        synchronized (Singleton.class) {  
+        if (singleton == null) {  
+            singleton = new Singleton();  
+        }  
+        }  
+    }  
+    return singleton;  
+    }  
+}  
+```
 
 总结:lazy-loading:yes ,线程安全,多线程下可保证高性能.
 
