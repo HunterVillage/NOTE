@@ -7,8 +7,10 @@ package forbasic;
  * @author Administrator
  * @title name
  * @Date 2018年7月3日
+ * @说明:枚举类型的构造方法要写在实例对象的后边，否则会编译出错
  */
 public class L {
+	
 	 public static void main(String args[]){
 		
 		 FF f1=FF.FRIDAY;
