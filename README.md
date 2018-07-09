@@ -2,6 +2,8 @@
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password1';
 
+*****
+
 **2.设计模式之单例实现与理解**
 
 普通单例：
@@ -39,19 +41,18 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password1';
 
 ①线程安全的懒汉式（因为加了synchronized关键字，即可多线程安全）
 
-`public class SSS{`
-
-   `private static SSS instance;`
-   private SSS() { 
-   }
-   `public static synchronized SSS getinstance() {`
-	   if(instance==null) {
-		   instance=new SSS();
-	   }
-	return instance;   
-   }	
-
-`}`
+```
+public class Singleton {  
+    private static Singleton instance;  
+    private Singleton (){}  
+    public static synchronized Singleton getInstance() {  
+    if (instance == null) {  
+        instance = new Singleton();  
+    }  
+    return instance;  
+    }  
+} 
+```
 
 优点:第一次调用才初始化，避免内存浪费.
 
@@ -61,15 +62,15 @@ lazy-loading:yes.
 
 ②饿汉式()
 
-`public class SSS{`
-  `private static SSS s=new SSS();// no lazy-loding`
-  `private SSS() {`  
-  `};`
-  `public static SSS getinstance() {`
-
-	  return s;
-  `}`
-`}`
+```
+public class Singleton {  
+    private static Singleton instance = new Singleton();  
+    private Singleton (){}  
+    public static Singleton getInstance() {  
+    return instance;  
+    }  
+}  
+```
 
 优点:没有加锁,执行效率高
 
@@ -77,22 +78,22 @@ lazy-loading:yes.
 
 ③双检锁/双重校验锁(double-checked locking)
 
-`public class SSS{`
-`private volatile static SSS s;`
- `private SSS() {` 
- `};`
- `public static SSS getinstance() {`
-
-	 if(s==null) {
-		 synchronized(SSS.class) {
-			 if(s==null) {
-				 s=new SSS();	 
-			 }
-		 }		  
-	 }
-	return s;
- `}`
-`}`
+```
+public class Singleton {  
+    private volatile static Singleton singleton;  
+    private Singleton (){}  
+    public static Singleton getSingleton() {  
+    if (singleton == null) {  
+        synchronized (Singleton.class) {  
+        if (singleton == null) {  
+            singleton = new Singleton();  
+        }  
+        }  
+    }  
+    return singleton;  
+    }  
+}  
+```
 
 总结:lazy-loading:yes ,线程安全,多线程下可保证高性能.
 
@@ -126,3 +127,24 @@ public enum Singleton {
 
 总结:lazy-loding:NO,线程安全,它不仅能避免多线程同步问题，而且还自动支持序列化机制，防止反序列化重新创建新的对象，绝对防止多次实例化。不过，由于 JDK1.5 之后才加入 enum 特性，用这种方式写不免让人感觉生疏，在实际工作中，也很少用。
 不能通过 reflection attack 来调用私有构造方法
+
+******
+
+**3.今天hexo上传博客到github报错：**
+
+  block mapping entry; a multiline key may not be an 
+
+  implicit key at line 4, column 1
+
+解决:tags后面要有一个空格！！！title和date也一样
+
+*****
+
+**4.我把git本地仓库的文件删了,想git pull一份，是不行的:**
+
+主要命令(整个目录):`git checkout .`
+
+单个文件:git check 文件名称
+
+其他命令:git status(查看工作区状态) 
+
