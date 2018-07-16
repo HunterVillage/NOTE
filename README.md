@@ -148,7 +148,17 @@ public enum Singleton {
 
 其他命令:git status(查看工作区状态) 
 
+***********
+
 **5.关于hexo d -g(生成及部署)**
 
 https://hexo.io/docs/generating.html
 =======
+
+*********************************
+
+**6.关于设计模式之工厂模式的简述**
+
+代码描述：首先建立一个Shape接口(形状),三个不同形状的实现类实现Shape接口,定义一个工厂类，其中定义Shape接口方法getShape()来获取形状类型的对象,public Shape getShape(String shapetype),最后用接口来接收一个工厂类返回的对象，例如Shape s1=sf.getShape("circle");
+
+JDK体现:Calendar等。
