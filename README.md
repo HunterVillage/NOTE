@@ -148,8 +148,7 @@ public enum Singleton {
 
 其他命令:git status(查看工作区状态) 
 
----------
-
 **5.关于hexo d -g(生成及部署)**
 
 https://hexo.io/docs/generating.html
+=======
