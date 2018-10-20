@@ -167,6 +167,6 @@ JDK体现:Calendar等。
 
 **7.Readme.md加图片格式**
 
-![image](仓库地址/raw/master/图片目录)
+![image] 小括号内加:仓库地址/raw/master/图片目录
 
  
