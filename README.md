@@ -167,7 +167,6 @@ JDK体现:Calendar等。
 
 **7.Readme.md加图片格式**
 
-![image](https://github.com/onlyDaYue/EmailTest/raw/master/src/main/webapp/img/emailpic.png)
+![image](仓库地址/raw/master/图片目录)
 
-注释：(仓库地址/raw/master/图片目录)
  
