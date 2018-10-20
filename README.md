@@ -162,3 +162,12 @@ https://hexo.io/docs/generating.html
 代码描述：首先建立一个Shape接口(形状),三个不同形状的实现类实现Shape接口,定义一个工厂类，其中定义Shape接口方法getShape()来获取形状类型的对象,public Shape getShape(String shapetype),最后用接口来接收一个工厂类返回的对象，例如Shape s1=sf.getShape("circle");
 
 JDK体现:Calendar等。
+
+*********************************
+
+**7.Readme.md加图片格式**
+
+![image](https://github.com/onlyDaYue/EmailTest/raw/master/src/main/webapp/img/emailpic.png)
+
+注释：(仓库地址/raw/master/图片目录)
+ 
