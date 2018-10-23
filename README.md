@@ -182,9 +182,11 @@ JDK体现:Calendar等。
 **9.对java中return this的理解**
 
 public class ThisT {
+
     /*
     return this:返回实例化对象
      */
+     
     boolean real;
 
     public ThisT(){
