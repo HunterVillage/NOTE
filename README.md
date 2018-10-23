@@ -177,4 +177,33 @@ JDK体现:Calendar等。
 
 ②工厂模式调用过程:定义一个父接口动作，实现父接口实现具体动作，比如接口画画，具体动作画圆 还是方等等,新建工厂类，新建类型为父接口的判断方法(参入判断到底想画什么)，如果传入参数为圆，则return new Circle()圆的实现类，此处用接口来接收return的实现类(理解为多态).
 
+*********************************
+
+**9.对java中return this的理解**
+
+public class ThisT {
+    /*
+    return this:返回实例化对象
+     */
+    boolean real;
+
+    public ThisT(){
+
+    }
+
+    public void setReal(boolean real){
+        this.real=real;
+    }
+
+    public ThisT rel(boolean rel){
+        this.setReal(rel);
+
+        return this;
+    }
+
+
+}
+
+总结:以上实例 如果调用rel(boolean rel)传递参数过来， rel(boolean rel)中的return this相当于给real变量赋值，因为setReal()为void没有返回值与return this 为 返回实例化对象，而此实例化对象则唯一属性为real。
+
  
