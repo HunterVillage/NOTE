@@ -208,4 +208,14 @@ public class ThisT {
 
 总结:以上实例 如果调用rel(boolean rel)传递参数过来， rel(boolean rel)中的return this相当于给real变量赋值，因为setReal()为void没有返回值与return this 为 返回实例化对象，而此实例化对象则唯一属性为real。
 
+*********************************
+
+**10.git commit提交问题**
+
+如果提交文件没有加注释则会报错
+类似于：Unable to create 'E:/xxx/.git/index.lock': File exists
+解决：rm -f .git/index.lock
+提交文件：commit -m "注释"
+
+
  
