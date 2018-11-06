@@ -215,7 +215,7 @@ public class ThisT {
 如果提交文件没有加注释则会报错  
 类似于：Unable to create 'E:/xxx/.git/index.lock': File exists  
 解决：rm -f .git/index.lock  
-提交文件：commit -m "注释"
+提交文件：git commit -m "注释"
 
 
  
