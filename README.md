@@ -217,5 +217,13 @@ public class ThisT {
 解决：rm -f .git/index.lock  
 提交文件：git commit -m "注释"
 
+*********************************
+
+**10.关于String args[]**
+
+public static void main(String args[])中String args[]表示一个字符串参数  
+应用:本地编译源文件javac xxx.java,运行java xxx. System.out.print(args[0],args[1])  
+注意:java xxx:xxx为包名.文件名 执行目录为此包的目录下
+
 
  
