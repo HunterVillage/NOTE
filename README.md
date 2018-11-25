@@ -225,5 +225,13 @@ public static void main(String args[])中String args[]表示一个字符串参�
 应用:本地编译源文件javac xxx.java,运行java xxx. System.out.print(args[0],args[1])  
 注意:java xxx:xxx为包名.文件名 执行目录为此包的目录下
 
+*********************************
+
+**11.mybatis报ORA-00904 标示符无效(坑死爹了)**
+
+一般情况报这个错就是字段写错或者缺少标点符号,我昨天碰到的问题是 我oracle创建表的时候我把字段都建为了小写，导致插入的时候报这种错误。
+
+解决方法：如果oracle数据表字段为小写时,mybatis xml sql中，insert字段是要加双引号。
+
 
  
