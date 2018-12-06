@@ -4,7 +4,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password1';
 
 *****
 
-**2.熟悉设计模式之单例实现与理解**
+    **2.熟悉设计模式之单例实现与理解**
 
 普通单例：
 
